@@ -5,7 +5,7 @@ const https = require("https");
 const mongoose = require('mongoose');
 var  strings= require("./public/constants/strings");
 
-
+//setting views
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
