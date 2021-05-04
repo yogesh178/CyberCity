@@ -11,7 +11,15 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 //Database connection
-mongoose.connect(strings.dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect(strings.dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose
+  .connect(strings.dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("Database connected!"))
+  .catch(err => console.log(err));
 
 //Schema
 const Count = require(__dirname+ "/public/dbHandler/ComicViews.js");
