@@ -22,6 +22,7 @@ module.exports = function ApiHandler(url, res, Count) {
           if (count) {
             count.count = count.count + 1;
             count.save();
+            console.log("Count of the home page:" + count.count);
             var transcript = comicData.transcript;
 
             //formatting transcript data
@@ -49,7 +50,6 @@ module.exports = function ApiHandler(url, res, Count) {
             newCount.save();
             var transcript = comicData.transcript;
             let transArray = transcript.split("\n");
-            console.log(transArray);
             res.render("comicStrip", {
               comicTitle: comicData.title,
               imageSRC: comicData.img,
