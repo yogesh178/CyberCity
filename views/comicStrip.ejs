@@ -1,0 +1,63 @@
+
+<%- include("header") -%>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <a href="/"><h3>Cyber City Comics</h3></a>
+    </div>
+
+    <div class="content">
+
+      <div class="title-section">
+        <h4><%= comicTitle %></h4>
+      </div>
+
+      <div class="comic-details">
+        <div class="pageNumber">
+          <p>Page Number: <%= comicID%></p>
+        </div>
+
+        <div class="publish-date">
+          <p>Publish Date: <%= year%> - <%= month%> - <%= day%></p>
+        </div>
+
+        <div class="views">
+          <p>Total Views: <%= count%></p>
+        </div>
+
+      </div>
+
+      <div class="image-wrapper">
+        <img src="<%= imageSRC %>">
+      </div>
+
+
+      <div class="image-descrption">
+        <p class= "p-descrption"> Description: <%= imgDescription %></p>
+        <p>
+          <% for (var i = 0; i < imgTrans.length; i++) { %>
+          <br> <br><%= imgTrans[i] %>
+          <% } %>
+        </p>
+      </div>
+      <div class="navigation-buttons">
+
+        <%# Random number generator %>
+        <% const number=Math.floor((Math.random() * 2500) + 1);%>
+
+        <a href="/<%= comicID -1%>"><button type="button">Previous</button></a>
+        <a href="/"><button type="button">Home</button></a>
+        <a href="/<%= number %>"=><button type="button" >Random</button></a>
+        <a href="/<%= comicID +1 %>"=><button type="button" >Next</button></a>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+<%- include("footer") -%>
