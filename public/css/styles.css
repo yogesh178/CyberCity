@@ -105,9 +105,25 @@ h4{
 Button colour is changed
 Title is aligned to the center*/
 @media (max-width : 1028px) {
+
+  h3{
+    font-size: 4rem;
+  }
+
+  h4{
+    font-size: 4rem;
+  }
+
   .header{
     text-align: center;
   }
+
+  .comic-details>div {
+    display: inline-block;
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+
   .content button{
     background-color: black;
     color: white;
@@ -115,5 +131,9 @@ Title is aligned to the center*/
   .content button:hover{
     background-color: white;
     color: black;
+  }
+
+  .image-descrption {
+    font-size: 1.5rem;
   }
 }

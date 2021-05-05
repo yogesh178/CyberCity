@@ -14,12 +14,10 @@ app.use(express.static(__dirname + "/public"));
 
 dotenv.config();
 
+//Database connection
 const dbUrl = "mongodb+srv://" + process.env.DB_USERNAME + ":" +process.env.DB_PASSWORD+"@cybercitycluster.wvp0r.mongodb.net/comicViews?retryWrites=true/counts";
 
-
-//Database connection
 //mongoose.connect(strings.dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
-console.log(dbUrl);
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
