@@ -3,17 +3,25 @@ const bodyParser = require("body-parser");
 const app = express();
 const https = require("https");
 const mongoose = require('mongoose');
-var  strings= require("./public/constants/strings");
+const dotenv = require("dotenv");
+
 
 //setting views
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
 
+
+dotenv.config();
+
+const dbUrl = "mongodb+srv://" + process.env.DB_USERNAME + ":" +process.env.DB_PASSWORD+"@cybercitycluster.wvp0r.mongodb.net/comicViews?retryWrites=true/counts";
+
+
 //Database connection
 //mongoose.connect(strings.dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+console.log(dbUrl);
 mongoose
-  .connect(strings.dbUrl, {
+  .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
